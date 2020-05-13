@@ -6,22 +6,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-let rerenderAllTree = (state)=>{
-ReactDOM.render(
-  <BrowserRouter>
-    <App state = {state} dispatch = {store.dispatch.bind(store)} store = {store} />
+
+
+
+  ReactDOM.render(
+    <BrowserRouter >
+     <Provider store = {store}>
+        <App  />
+        </Provider>
     </BrowserRouter>,
-  document.getElementById('root')
-);
-}
-
-rerenderAllTree(store.getState());
-
-store.subscribe(()=>{
-  let state = store.getState();
-  rerenderAllTree(state);
-});
+    document.getElementById('root')
+  );
 
 serviceWorker.unregister();
 

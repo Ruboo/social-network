@@ -14,11 +14,20 @@ const profileReducer = (state = initialState,action) =>{
                 message: state.newPostText,
                 likesCount: 0
             };
-            state.postsData.push(newPost);
-            state.newPostText = '';
+             return {
+                ...state,
+            postsData:[...state.postsData,newPost],
+            newPostText:''
+            };
+            // stateCopy.postsData = [...state.postsData];
+            // stateCopy.postsData.push(newPost);
+            // stateCopy.newPostText = '';
 
         } else if (action.type === 'UPDATE_NEW_POST_TEXT') {
-           state.newPostText = action.newText;
+            return {
+               ...state,
+               newPostText:action.newText
+            };
         } 
 
     return state;
@@ -32,8 +41,7 @@ export const addPostActionCreator = () => {
 
 
 export const updateNewPostTextActionCreator = (text) => {
-    console.log(text)
-    return {
+        return {
         type: 'UPDATE_NEW_POST_TEXT', newText: text
     }
 }

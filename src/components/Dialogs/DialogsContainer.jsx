@@ -1,33 +1,52 @@
 import React from 'react';
-import classes from './Dialogs.module.css';
-import { NavLink } from 'react-router-dom';
-import DialogItem from './DialogItem/DialogItem';
-import Message from './Message/Message';
-import {updateNewMessageTextCreator,sendMessageCreator} from '../../redux/dialogsReducer'
+import { updateNewMessageTextCreator, sendMessageCreator } from '../../redux/dialogsReducer'
 import Dialogs from './Dialogs';
-
-const DialogsContainer = (props) => {
-  let state = props.store.getState().dialogsPage;
-
-let onSendMessageClick = ()=>{
-  props.store.dispatch(sendMessageCreator()); 
-
-}
-let onMessageTyping = (newMessage)=>{
- props.store.dispatch(updateNewMessageTextCreator(newMessage)); 
+import { connect } from 'react-redux';
 
 
+let mapStateToProps = (state)=>{
+  return{
+    dialogsPage:state.dialogsPage
+
+  }
 }
 
+let mapDispatchToProps = (dispatch)=>{
+  return {
+    updateNewMessageText:(newMessage)=>{  
+      dispatch(updateNewMessageTextCreator(newMessage));
+    },
+    sendMessage:()=>{
+      dispatch(sendMessageCreator());
+    }
+  }
+}
+
+const DialogsContainer = connect(mapStateToProps,mapDispatchToProps)(Dialogs);
 
 
-    return (
+// const DialogsContainer = (props) => {
+//   let state = props.store.getState().dialogsPage;
+
+// let onSendMessageClick = ()=>{
+//   props.store.dispatch(sendMessageCreator()); 
+
+// }
+// let onMessageTyping = (newMessage)=>{
+//  props.store.dispatch(updateNewMessageTextCreator(newMessage)); 
+
+
+// }
+
+
+
+//     return (
        
-            <Dialogs updateNewMessageText = {onMessageTyping} 
-            sendMessage = {onSendMessageClick}
-              dialogsPage = {state}
-            />
-    )
-}
+//             <Dialogs updateNewMessageText = {onMessageTyping} 
+//             sendMessage = {onSendMessageClick}
+//               dialogsPage = {state}
+//             />
+//     )
+// }
 
 export default DialogsContainer;
