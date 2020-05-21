@@ -54,12 +54,12 @@ return{...state, users:action.users}
     }
 
 }
-    export const followActionCreater = (userId) => ({ type: FOLLOW, userId });
-    export const setUsersActionCreater = (users) => ({ type: SET_USERS, users });
-    export const unfollowActionCreater = (userId) => ({ type: UNFOLLOW, userId });
-    export const setCurrentPageActionCreater = (currentPage) => ({type:SET_CURRENT_PAGE ,currentPage});
-    export const setUsersTotalCountActionCreater = (totalUsersCount) => ({type:SET_TOTAL_USERS_COUNT ,count:totalUsersCount});
-    export const toggleIsFetchingActionCreator = (isFetching) => ({type:TOGGLE_IS_FETCHING ,isFetching});
+    export const follow = (userId) => ({ type: FOLLOW, userId });
+    export const setUsers = (users) => ({ type: SET_USERS, users });
+    export const unfollow = (userId) => ({ type: UNFOLLOW, userId });
+    export const setCurrentPage = (currentPage) => ({type:SET_CURRENT_PAGE ,currentPage});
+    export const setUsersTotalCount = (totalUsersCount) => ({type:SET_TOTAL_USERS_COUNT ,count:totalUsersCount});
+    export const toggleIsFetching = (isFetching) => ({type:TOGGLE_IS_FETCHING ,isFetching});
 
 
 
