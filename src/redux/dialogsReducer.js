@@ -11,25 +11,16 @@ let initialState = {
         { id: 1, message: 'ciik' },
         { id: 2, message: 'Zxkum' },
         { id: 3, message: ' tidin' }
-    ],
-    newMessageText: ''
+    ]
 }
 
 
 const dialogsReducer = (state = initialState,action) =>{
 
-
-
-if (action.type === 'UPDATE_NEW_MESSAGE_TEXT') {
-    return {
-        ...state,
-        newMessageText: action.newMessage
-    };
-    } else if(action.type === 'SEND_MESSAGE') {
-        let newMessage = state.newMessageText;
+if(action.type === 'SEND_MESSAGE') {
+        let newMessage = action.newMessageText;
         return {
             ...state,
-            newMessageText : '',
             messagesData:[...state.messagesData,{ id:6, message: newMessage }]
         };
     }
@@ -37,18 +28,15 @@ if (action.type === 'UPDATE_NEW_MESSAGE_TEXT') {
 }
 
 
-export const sendMessageCreator = () => {
+export const sendMessageCreator = (newMessageText) => {
     return {
-        type: 'SEND_MESSAGE'
+        type: 'SEND_MESSAGE',
+        newMessageText
     }
 }
 
 
-export const updateNewMessageTextCreator = (newMessage) => {
-    return {
-        type: 'UPDATE_NEW_MESSAGE_TEXT', newMessage: newMessage
-    }
-}
+
 
 
 
