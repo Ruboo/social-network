@@ -1,4 +1,4 @@
-import { usersAPI } from "../api/api";
+import { usersAPI, profileAPI } from "../api/api";
 
 
 
@@ -8,7 +8,8 @@ let initialState = {
         { id: 2, message: 'This my post', likesCount: 23 }
     ],
     newPostText: '',
-    profile: null
+    profile: null,
+    status: ''
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -39,6 +40,10 @@ const profileReducer = (state = initialState, action) => {
         return { ...state, profile: action.profile }
     }
 
+    if (action.type === 'SET_STATUS') {
+        return { ...state, status: action.status }
+    }
+
     return state;
 }
 
@@ -57,15 +62,37 @@ export const updateNewPostTextActionCreator = (text) => {
 
 export const setUserProfile = (profile) => {
     return {
-        type: 'SET_USER_PROFILE',profile
+        type: 'SET_USER_PROFILE', profile
     }
 }
+
+export const setStatus = (status) => {
+    return {
+        type: 'SET_STATUS', status
+    }
+}
+
 export const getUserProfile = (userId) => (dispatch) => {
     usersAPI.getProfile(userId).then(response => {
-      dispatch(setUserProfile(response.data));
+        dispatch(setUserProfile(response.data));
     });
-   }
-    
+}
+
+export const getStatus = (userId) => (dispatch) => {
+    profileAPI.getStatus(userId).then(response => {
+        dispatch(setStatus(response.data));
+    });
+}
+
+export const updateStatus = (status) => (dispatch) => {
+    profileAPI.updateStatus(status)
+    .then(response => {
+        if (response.data.resultCode === 0) {
+            dispatch(setStatus(status));
+        }
+    });
+}
+
 
 
 export default profileReducer;
