@@ -2,7 +2,6 @@ import React from 'react';
 import classes from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button'
-import noPhoto from '../../assets/images/noPhoto.svg'
 
 
 
