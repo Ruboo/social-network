@@ -2,8 +2,6 @@ import React from 'react';
 import styles from './Users.module.css'
 import noPhoto from '../../assets/images/noPhoto.svg'
 import { NavLink } from 'react-router-dom';
-import * as axios from 'axios';
-import { usersAPI } from '../../api/api';
 import Card from 'react-bootstrap/Card';
 import Pagination from 'react-bootstrap/Pagination';
 import Button from 'react-bootstrap/Button'
