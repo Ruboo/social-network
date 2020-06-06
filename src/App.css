@@ -9,7 +9,7 @@
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   grid-gap:10px;
-
+  background-color:white;
 }
 .ava img{
   width: 120px;
@@ -17,11 +17,26 @@
 }
 
 
-.app-wrapper-content{
+div.app-wrapper-content{
     
     grid-area: content;
-    background-color:rgb(130, 190, 247);
-    
+    height: 600px;
+    background-color:whitesmoke;
+    overflow: scroll;
+    border-radius: 5px;
   }
-  
+div.app-wrapper-content::-webkit-scrollbar {
+    width: 10px;
+    background:  white; 
 
+  }
+div.app-wrapper-content ::-webkit-scrollbar-track {
+  background:  white; 
+    border-radius: 10px;
+  }
+   
+div.app-wrapper-content::-webkit-scrollbar-thumb {
+  background:grey; 
+  border-radius: 10px;
+}
+  

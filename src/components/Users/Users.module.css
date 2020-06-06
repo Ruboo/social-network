@@ -8,9 +8,8 @@
     padding:10px;
 }
 
-.selectedPage{
-    font-weight: bold;
+.users{
+    padding:5px;
+    box-shadow: 3px 3px 15px 0px rgba(82, 82, 82, 0.85);
 }
-.pItems{
-    cursor: pointer;
-}
+

@@ -14,9 +14,9 @@ const ProfileInfo = (props) => {
   }
   return (
     <div>
-      {/* <div>
+      <div>
         <img src="https://q-xx.bstatic.com/images/hotel/max1024x768/104/104527459.jpg"></img>
-      </div> */}
+      </div>
       <div className={classes.descriptionBlock}>
         <img src={props.profile.photos.large} />
         <ProfileStatus status = {props.status} updateStatus = {props.updateStatus}/>
