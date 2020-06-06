@@ -1,6 +1,6 @@
 .head{
     grid-area: header;
-    background-color:whitesmoke;
+    background-color:#0000CD;
   
   }
   .head img{
@@ -9,16 +9,7 @@
 
   .loginBlock{
     float: right;
-    
+    color: white;
+
 
   }
-
-.loginBlock a {
-color: white;
-
-}
-
-.userName{
-  color: black;
-}
-  

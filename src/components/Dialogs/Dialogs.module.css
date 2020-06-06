@@ -14,20 +14,16 @@
   color: black;
 }
 
-.dialogs a.active, .dialogs a:hover {
+.dialog a.active, .dialog a:hover {
   color: black;
-  background-color: grey;
-  height: auto;
-  margin: 0;
-  padding: 0 16px !important;
-  font-size: 14px;
+  background-color:#0000CD;
+  padding: 0 16px;
   transform: translate3d(0px, 0, 0);
-  transition: transform 300ms ease 0s, opacity 300ms ease 0s;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 300;
   line-height: 30px;
-  white-space: nowrap;
   text-decoration: none;
+  border-radius: 5px;
 
 }
 

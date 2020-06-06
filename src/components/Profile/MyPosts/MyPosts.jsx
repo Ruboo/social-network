@@ -4,7 +4,6 @@ import Post from './Post/Post';
 import { reduxForm, Field } from 'redux-form';
 import { requiredField, maxLengthCreator } from '../../../utilits/validators/validators';
 import { Textarea } from '../../common/FormsControls/FormsControls';
-import Button from 'react-bootstrap/Button'
 
 
 const maxLength10 = maxLengthCreator(10)
@@ -14,11 +13,10 @@ let AddNewPostForm = (props) => {
     <form onSubmit={props.handleSubmit}>
       <div>
       <Field name = 'newPostText' component =  {Textarea} placeholder = {'Type your post here'} 
-      validate = {[requiredField, maxLength10]}
-      /> 
+      validate = {[requiredField, maxLength10]} className = {classes.area}/> 
       </div>
       <div>
-        <button>Add post</button>
+        <button className = {classes.btn}>Add post</button>
       </div>
     </form>
   )

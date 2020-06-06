@@ -23,62 +23,63 @@ let Users = (props) => {
 
 
     return (
-        <div >
+        <div  >
 
+            <div className={styles.users}>
+                <Pagination>
+                    <Pagination.Prev />
+                    {pagesList.map(p => {
+                        return <Pagination.Item className={props.currentPage === p}
+                            onClick={(e) => {
+                                props.onPageChanged(p);
+                            }}>{p}</Pagination.Item>
+                    })}
 
-            <Pagination>
-                <Pagination.Prev />
-                {pagesList.map(p => {
-                    return <Pagination.Item className={props.currentPage === p}
-                        onClick={(e) => {
-                            props.onPageChanged(p);
-                        }}>{p}</Pagination.Item>
-                })}
+                    <Pagination.Next />
 
-                <Pagination.Next />
-
-            </Pagination>
+                </Pagination>
+            </div>
             <CardColumns>
 
-            {
-                props.users.map(u => <div key={u.id} className={styles.users}>
-                    <Card style={{ width: '10rem'}} hover = 'translate3d(0px, 0, 0)' >
-                        <span>
-                            <div>
-                                <NavLink to={'/profile/' + u.id}>
-                                    <img src={u.photos.small != null ? u.photos.small : noPhoto} className={styles.userPhoto} />
-                                </NavLink>
-                            </div>
-                            <div className={styles.btn}>
-                                {u.followed
-                                    ? <Button variant="danger" disabled={props.followingInProgress.some(id => id === u.id)}
-                                        onClick={() => {
-
-                                            props.unfollow(u.id)
-
-                                        }} > Unfollow </Button>
-                                    : <Button variant="success" disabled={props.followingInProgress.some(id => id === u.id)}
-                                        onClick={() => {
-                                            props.follow(u.id)
-
-                                        }}> Follow </Button>}
-
-                            </div>
-                        </span>
-                        <span>
+                {
+                    props.users.map(u => <div key={u.id} className={styles.users}>
+                        <Card style={{ width: '10rem' }} >
                             <span>
-                                <div>{u.name}</div>
-                                <div>{u.status}</div>
+                                <div>
+                                    <NavLink to={'/profile/' + u.id}>
+                                        <img src={u.photos.small != null ? u.photos.small : noPhoto} className={styles.userPhoto} />
+                                    </NavLink>
+                                </div>
+                                <div className={styles.btn}>
+                                    {u.followed
+                                        ? <Button variant="danger" disabled={props.followingInProgress.some(id => id === u.id)}
+                                            onClick={() => {
+
+                                                props.unfollow(u.id)
+
+                                            }} > Unfollow </Button>
+                                        : <Button variant="success" disabled={props.followingInProgress.some(id => id === u.id)}
+                                            onClick={() => {
+                                                props.follow(u.id)
+
+                                            }}> Follow </Button>}
+
+                                </div>
                             </span>
                             <span>
-                                <div>{'u.location.country'}</div>
-                                <div>{'u.location.city'}</div>
+                                <span>
+                                    <div>{u.name}</div>
+                                    <div>{u.status}</div>
+                                </span>
+                                <span>
+                                    <div>{'u.location.country'}</div>
+                                    <div>{'u.location.city'}</div>
 
+                                </span>
                             </span>
-                        </span>
-                    </Card>
-                </div>)
-            }
+                        </Card>
+                    </div>)
+                }
             </CardColumns>
 
         </div>
