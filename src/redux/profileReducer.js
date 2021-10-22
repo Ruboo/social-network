@@ -12,7 +12,6 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
-
     if (action.type === 'ADD_POST') {
         let newPost = {
             id: 3,
@@ -22,7 +21,7 @@ const profileReducer = (state = initialState, action) => {
         return {
             ...state,
             postsData: [...state.postsData, newPost],
-            newPostText: ''
+            newPostText: ""
         };
     }
       
@@ -78,7 +77,5 @@ export const updateStatus = (status) => (dispatch) => {
         }
     });
 }
-
-
 
 export default profileReducer;

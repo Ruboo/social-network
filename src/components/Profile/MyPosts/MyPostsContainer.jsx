@@ -11,10 +11,13 @@ const mapStateToProps = (state) => {
   }
 }
 const mapsDispatchToProps = (dispatch) => {
+  // this.setState({
+  //   profilePage: {newPostText: ''}
+  // })
   return {
     addPost: (newPostText) => {
       dispatch(addPostActionCreator(newPostText));
-
+     
     }
   }
 }
